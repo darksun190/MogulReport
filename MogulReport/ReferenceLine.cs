@@ -14,27 +14,33 @@ namespace MogulReport
     {
         public double x
         {
-            get; set;
+            get;
+            set;
         }
         public double y
         {
-            get; set;
+            get;
+            set;
         }
         public double z
         {
-            get; set;
+            get;
+            set;
         }
         public double i
         {
-            get; set;
+            get;
+            set;
         }
         public double j
         {
-            get; set;
+            get;
+            set;
         }
         public double k
         {
-            get; set;
+            get;
+            set;
         }
 
 
@@ -57,11 +63,30 @@ namespace MogulReport
 
         internal CircleOffset getDev(Circle c)
         {
-            double ix, iy;
-            double t = (c.z - z) / k;
-            ix = x + t * i;
-            iy = y + t * j;
-            return new CircleOffset(c.x - ix, c.y - iy);
+            double ix, iy, iz;
+            int axis = 2;   //x-axis 1, y-axis 2, z-axis 3
+            double t;
+            switch (axis)
+            {
+                case 1:
+                    t = (c.x - x) / i;
+                    iy = y + t * j;
+                    iz = z + t * k;
+                    return new CircleOffset(c.y - iy, c.z - iz);
+                case 2:
+                    t = (c.y - y) / j;
+                    ix = x + t * i;
+                    iz = z + t * k;
+                    return new CircleOffset(c.x - ix, c.z - iz);
+                case 3:
+                    t = (c.z - z) / k;
+                    ix = x + t * i;
+                    iy = y + t * j;
+                    return new CircleOffset(c.x - ix, c.y - iy);
+                default:
+                    throw new NotImplementedException();
+            }
+
         }
     }
 }
