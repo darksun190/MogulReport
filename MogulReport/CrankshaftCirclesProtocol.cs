@@ -52,6 +52,7 @@ namespace MogulReport
                     circles.GetRange(group_no * no_each_group, no_each_group), 
                     OffsetValues.GetRange(group_no * no_each_group, no_each_group)
                     );
+                Debug.WriteLine(Mcpp.TotalHeight.ToString());
                 protocolPages.Add(Mcpp);
             }
             

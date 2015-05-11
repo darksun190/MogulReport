@@ -63,132 +63,41 @@ namespace MogulReport.Properties {
         /// <summary>
         ///   查找类似 Axis 的本地化字符串。
         /// </summary>
-        internal static string DataTableAxis {
+        internal static string Axis {
             get {
-                return ResourceManager.GetString("DataTableAxis", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Drilling 的本地化字符串。
-        /// </summary>
-        internal static string DataTableCircle {
-            get {
-                return ResourceManager.GetString("DataTableCircle", resourceCulture);
+                return ResourceManager.GetString("Axis", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Coaxial 的本地化字符串。
         /// </summary>
-        internal static string DataTableCoaxial {
+        internal static string Coaxial {
             get {
-                return ResourceManager.GetString("DataTableCoaxial", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Evaluation 的本地化字符串。
-        /// </summary>
-        internal static string DatatableEvaluation {
-            get {
-                return ResourceManager.GetString("DatatableEvaluation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Offset.X 的本地化字符串。
-        /// </summary>
-        internal static string DataTableExcentX {
-            get {
-                return ResourceManager.GetString("DataTableExcentX", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Offset.Y 的本地化字符串。
-        /// </summary>
-        internal static string DataTableExcentY {
-            get {
-                return ResourceManager.GetString("DataTableExcentY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Filter 的本地化字符串。
-        /// </summary>
-        internal static string DataTableFilter {
-            get {
-                return ResourceManager.GetString("DataTableFilter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 MULTI POLAR RADIAL
-        ///Name :   的本地化字符串。
-        /// </summary>
-        internal static string DataTableHeader1 {
-            get {
-                return ResourceManager.GetString("DataTableHeader1", resourceCulture);
+                return ResourceManager.GetString("Coaxial", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Datum 的本地化字符串。
         /// </summary>
-        internal static string DataTableHeader2 {
+        internal static string Datum {
             get {
-                return ResourceManager.GetString("DataTableHeader2", resourceCulture);
+                return ResourceManager.GetString("Datum", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 Reference 的本地化字符串。
+        ///   查找类似 ° 的本地化字符串。
         /// </summary>
-        internal static string DataTableHeader3 {
+        internal static string degree {
             get {
-                return ResourceManager.GetString("DataTableHeader3", resourceCulture);
+                return ResourceManager.GetString("degree", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 Mesuring Point 的本地化字符串。
-        /// </summary>
-        internal static string DataTableMessPt {
-            get {
-                return ResourceManager.GetString("DataTableMessPt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Posiz.Z 的本地化字符串。
-        /// </summary>
-        internal static string DataTablePosZ {
-            get {
-                return ResourceManager.GetString("DataTablePosZ", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Reference 的本地化字符串。
-        /// </summary>
-        internal static string DataTableRef {
-            get {
-                return ResourceManager.GetString("DataTableRef", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Roundness 的本地化字符串。
-        /// </summary>
-        internal static string DataTableRoundness {
-            get {
-                return ResourceManager.GetString("DataTableRoundness", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 d 的本地化字符串。
+        ///   查找类似 u 的本地化字符串。
         /// </summary>
         internal static string down {
             get {
@@ -197,8 +106,52 @@ namespace MogulReport.Properties {
         }
         
         /// <summary>
-        ///   查找类似 product-Nr. : __________________     ___________                
-        ///Page : _______   to : _______ 的本地化字符串。
+        ///   查找类似 Drilling 的本地化字符串。
+        /// </summary>
+        internal static string Drilling {
+            get {
+                return ResourceManager.GetString("Drilling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Evaluation 的本地化字符串。
+        /// </summary>
+        internal static string Evaluation {
+            get {
+                return ResourceManager.GetString("Evaluation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Offset.X 的本地化字符串。
+        /// </summary>
+        internal static string ExcentX {
+            get {
+                return ResourceManager.GetString("ExcentX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Offset.Y 的本地化字符串。
+        /// </summary>
+        internal static string ExcentY {
+            get {
+                return ResourceManager.GetString("ExcentY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Filter 的本地化字符串。
+        /// </summary>
+        internal static string Filter {
+            get {
+                return ResourceManager.GetString("Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 product-Nr. 的本地化字符串。
         /// </summary>
         internal static string HeaderString1 {
             get {
@@ -213,6 +166,15 @@ namespace MogulReport.Properties {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Measuring Point 的本地化字符串。
+        /// </summary>
+        internal static string MeasuringPoint {
+            get {
+                return ResourceManager.GetString("MeasuringPoint", resourceCulture);
             }
         }
         
@@ -244,7 +206,70 @@ namespace MogulReport.Properties {
         }
         
         /// <summary>
-        ///   查找类似 u 的本地化字符串。
+        ///   查找类似 MULTI POLAR RADIAL 的本地化字符串。
+        /// </summary>
+        internal static string MultiCircleHeader {
+            get {
+                return ResourceManager.GetString("MultiCircleHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Name 的本地化字符串。
+        /// </summary>
+        internal static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Page 的本地化字符串。
+        /// </summary>
+        internal static string Page {
+            get {
+                return ResourceManager.GetString("Page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Posiz.Z 的本地化字符串。
+        /// </summary>
+        internal static string PosZ {
+            get {
+                return ResourceManager.GetString("PosZ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Reference 的本地化字符串。
+        /// </summary>
+        internal static string Reference {
+            get {
+                return ResourceManager.GetString("Reference", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Roundness 的本地化字符串。
+        /// </summary>
+        internal static string Roundness {
+            get {
+                return ResourceManager.GetString("Roundness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 to 的本地化字符串。
+        /// </summary>
+        internal static string To {
+            get {
+                return ResourceManager.GetString("To", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 o 的本地化字符串。
         /// </summary>
         internal static string up {
             get {

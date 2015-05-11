@@ -117,52 +117,47 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DataTableAxis" xml:space="preserve">
+  <data name="Axis" xml:space="preserve">
     <value>Axis</value>
   </data>
-  <data name="DataTableCircle" xml:space="preserve">
+  <data name="Drilling" xml:space="preserve">
     <value>Drilling</value>
   </data>
-  <data name="DataTableCoaxial" xml:space="preserve">
+  <data name="Coaxial" xml:space="preserve">
     <value>Coaxial</value>
   </data>
-  <data name="DatatableEvaluation" xml:space="preserve">
+  <data name="Evaluation" xml:space="preserve">
     <value>Evaluation</value>
   </data>
-  <data name="DataTableExcentX" xml:space="preserve">
+  <data name="ExcentX" xml:space="preserve">
     <value>Offset.X</value>
   </data>
-  <data name="DataTableExcentY" xml:space="preserve">
+  <data name="ExcentY" xml:space="preserve">
     <value>Offset.Y</value>
   </data>
-  <data name="DataTableFilter" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>Filter</value>
   </data>
-  <data name="DataTableHeader1" xml:space="preserve">
-    <value>MULTI POLAR RADIAL
-Name :  </value>
+  <data name="MultiCircleHeader" xml:space="preserve">
+    <value>MULTI POLAR RADIAL</value>
   </data>
-  <data name="DataTableHeader2" xml:space="preserve">
+  <data name="Datum" xml:space="preserve">
     <value>Datum</value>
   </data>
-  <data name="DataTableHeader3" xml:space="preserve">
+  <data name="Reference" xml:space="preserve">
     <value>Reference</value>
   </data>
-  <data name="DataTableMessPt" xml:space="preserve">
-    <value>Mesuring Point</value>
+  <data name="MeasuringPoint" xml:space="preserve">
+    <value>Measuring Point</value>
   </data>
-  <data name="DataTablePosZ" xml:space="preserve">
+  <data name="PosZ" xml:space="preserve">
     <value>Posiz.Z</value>
   </data>
-  <data name="DataTableRef" xml:space="preserve">
-    <value>Reference</value>
-  </data>
-  <data name="DataTableRoundness" xml:space="preserve">
+  <data name="Roundness" xml:space="preserve">
     <value>Roundness</value>
   </data>
   <data name="HeaderString1" xml:space="preserve">
-    <value>product-Nr. : __________________     ___________                
-Page : _______   to : _______</value>
+    <value>product-Nr.</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -175,12 +170,24 @@ Page : _______   to : _______</value>
     <value>mm</value>
   </data>
   <data name="down" xml:space="preserve">
-    <value>d</value>
+    <value>u</value>
   </data>
   <data name="middle" xml:space="preserve">
     <value>m</value>
   </data>
   <data name="up" xml:space="preserve">
-    <value>u</value>
+    <value>o</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>to</value>
+  </data>
+  <data name="degree" xml:space="preserve">
+    <value>°</value>
   </data>
 </root>
