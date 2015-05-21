@@ -151,7 +151,7 @@
     <value>Measuring Point</value>
   </data>
   <data name="PosZ" xml:space="preserve">
-    <value>Posiz.Z</value>
+    <value>Posiz.Y</value>
   </data>
   <data name="Roundness" xml:space="preserve">
     <value>Roundness</value>
@@ -189,5 +189,23 @@
   </data>
   <data name="degree" xml:space="preserve">
     <value>°</value>
+  </data>
+  <data name="Linear" xml:space="preserve">
+    <value>Linear</value>
+  </data>
+  <data name="MultiLineHeader" xml:space="preserve">
+    <value>MULTI LINEAR Z</value>
+  </data>
+  <data name="Parallel" xml:space="preserve">
+    <value>Parallel</value>
+  </data>
+  <data name="PosC" xml:space="preserve">
+    <value>Posit. C</value>
+  </data>
+  <data name="Slope" xml:space="preserve">
+    <value>Slope</value>
+  </data>
+  <data name="Straightness" xml:space="preserve">
+    <value>Straightness</value>
   </data>
 </root>

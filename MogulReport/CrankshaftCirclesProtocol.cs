@@ -12,7 +12,8 @@ namespace MogulReport
         private List<Circle> circles = new List<Circle>();
         public int groups
         {
-            get; set;
+            get;
+            set;
         }
         ReferenceLine rLine
         {
@@ -25,13 +26,12 @@ namespace MogulReport
             get;
             set;
         }
-        public CrankshaftCirclesProtocol(List<Feature> eles)
+        public CrankshaftCirclesProtocol(List<Feature> eles) 
         {
             foreach (var p in eles)
             {
                 circles.Add((Circle)p);
             }
-            protocolPages = new List<ProtocolPage>();
 
             //check how many groups(pages of protocol) of circles
             groups = guessGroups(circles.Count);

@@ -19,6 +19,10 @@ namespace MogulReport
             get;
             set;
         }
+        public Protocol()
+        {
+            protocolPages = new List<ProtocolPage>();
+        }
         internal virtual void save(string output_path)
         {
             // step 1
@@ -31,13 +35,13 @@ namespace MogulReport
                 // step 3
                 document.Open();
                 // step 4
-                for(int i=0;i<protocolPages.Count-1;++i)
+                for (int i = 0; i < protocolPages.Count - 1; ++i)
                 {
                     document.Add(protocolPages[i]);
                     document.NewPage();
                 }
                 document.Add(protocolPages.Last());
-              
+
                 //document.Add(new Paragraph("Hello World"));
                 //step 5
                 document.Close();

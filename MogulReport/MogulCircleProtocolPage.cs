@@ -17,6 +17,7 @@ namespace MogulReport
         List<Circle> circles;
         List<CircleOffset> offsets;
         int index;
+        List<double> Roundness;
         protected override PdfPTable Graphic
         {
             get
@@ -24,7 +25,7 @@ namespace MogulReport
                 //graphic part
                 var graphic = base.Graphic;
 
-                var form = new ZedGraphDebuggerWindow(circles, offsets,index);
+                var form = new ZedGraphCircleWindow(circles, offsets,index);
 
                 if (Debugger.IsAttached)
                 {
@@ -33,6 +34,7 @@ namespace MogulReport
                 Image roundness = Image.GetInstance(form.GraphicOutput, BaseColor.WHITE);
                 Debug.WriteLine("{0} ; {1}", roundness.Width, roundness.Height);
                 //roundness.ScaleAbsolute(550, 200);
+                Roundness = form.Roundness;
 
                 PdfPCell protocol_pic = new PdfPCell(roundness,true);
                // protocol_pic.FixedHeight = 440;
@@ -85,7 +87,7 @@ namespace MogulReport
                 datas.AddCell(datas_header);
                 //column names
                 datas.AddCell(MogulCircleProtocolPageDataTableItem.ColumnName);
-                datas.AddCell(MogulCircleProtocolPageDataTableItem.getInstance(index, circles, offsets));
+                datas.AddCell(MogulCircleProtocolPageDataTableItem.getInstance(index, circles, offsets, Roundness));
 
                 return datas;
             }
@@ -165,7 +167,7 @@ namespace MogulReport
                     return cName;
                 }
             }
-            internal static PdfPTable getInstance(int group_no, List<Circle> list1, List<CircleOffset> list2)
+            internal static PdfPTable getInstance(int group_no, List<Circle> list1, List<CircleOffset> list2, List<double> list3)
             {
                 PdfPTable res = new PdfPTable(8);
                 res.SetWidths(new int[] { 9, 6, 8, 6, 7, 7, 7, 10 });
@@ -192,11 +194,11 @@ namespace MogulReport
                 {
                     res.AddCell(new PdfPCell(new Paragraph(names[i])));
                     res.AddCell(new PdfPCell(new Paragraph("0-50")));
-                    res.AddCell(new PdfPCell(new Paragraph(list1[i].z.ToString("F3"))));
+                    res.AddCell(new PdfPCell(new Paragraph(list1[i].y.ToString("F3"))));
                     res.AddCell(new PdfPCell(new Paragraph("LSC")));
                     res.AddCell(new PdfPCell(new Paragraph((list2[i].x * 1000).ToString("F2"))));
                     res.AddCell(new PdfPCell(new Paragraph((list2[i].y * 1000).ToString("F2"))));
-                    double roundness = list1[i].maxDev() - list1[i].minDev();
+                    double roundness = list3[i];
 
                     res.AddCell(new PdfPCell(new Paragraph((roundness * 1000).ToString("F2"))));
                     double coax = Math.Sqrt(

@@ -8,10 +8,11 @@ using System.Text;
 using System.Windows.Forms;
 using ZedGraph;
 using SPInterface;
+using System.Configuration;
 
 namespace MogulReport
 {
-    public partial class ZedGraphDebuggerWindow : Form
+    public partial class ZedGraphCircleWindow : ZedGraphBaseWindow
     {
         /// <summary>
         /// define some parameters for protocol
@@ -27,30 +28,28 @@ namespace MogulReport
             Math.PI *0.75 + 5* Math.PI/18,
             Math.PI *0.75 + 6* Math.PI/18
         };
-        double mag = 1000;
-
-        ZedGraphControl zg = new ZedGraphControl();
-
-        internal ZedGraphDebuggerWindow()
+        double mag = Convert.ToDouble(ConfigurationManager.AppSettings["CircleMagnification"]);
+        List<double> roundness = new List<double>();
+   
+        internal ZedGraphCircleWindow()
         {
             InitializeComponent();
             zg.Size = new Size(600, 540);
-            this.Controls.Add(zg);
         }
         private List<Circle> circles;
         private List<CircleOffset> OffsetValues;
         int group_no;
         int circle_no;
 
-        public Image GraphicOutput
+     
+        public List<double> Roundness
         {
             get
             {
-                return zg.GetImage();
+                return roundness;
             }
         }
-
-        internal ZedGraphDebuggerWindow(List<Circle> list1, List<CircleOffset> list2, int group_index)
+        internal ZedGraphCircleWindow(List<Circle> list1, List<CircleOffset> list2, int group_index)
             : this()
         {
             circles = list1;
@@ -63,7 +62,7 @@ namespace MogulReport
             //clear all the exist data
             mypane.CurveList.Clear();
 
-            formatPane(mypane);
+            drawLayout(mypane);
 
             drawObjects(mypane);
 
@@ -94,7 +93,7 @@ namespace MogulReport
                 foreach (var curve in circle_act_points)
                 {
                     LineItem circle_points = mypane.AddCurve("", curve, Color.Red, SymbolType.None);
-                    circle_points.Line.Width = 0.7f;
+                    circle_points.Line.Width = 0.5f;
                 }
 
             }
@@ -110,7 +109,9 @@ namespace MogulReport
         private List<PointPairList> calcFilterPoints(Circle circle, double x, double y, double theo_radius)
         {
             ZegFilterCircle zfc = new ZegFilterCircle(circle);
-            return zfc.filterPoints(50, x, y, theo_radius,mag);
+            var res =  zfc.filterPoints(50, x, y, theo_radius, mag);
+            roundness.Add(zfc.Roundness);
+            return res;
         }
         /// <summary>
         /// draw fit circle exclude points
@@ -251,7 +252,7 @@ namespace MogulReport
 
             //draw 10micro scale ruler
             //text
-            TextObj tenmicrometer = new TextObj(string.Format("10{0}", Properties.Resources.micrometer)
+            TextObj tenmicrometer = new TextObj(string.Format("{0}{1}", 10000 / mag, Properties.Resources.micrometer)
                 , outside_circle_radius - 20, outside_circle_radius - 5, CoordType.AxisXYScale);
             tenmicrometer.FontSpec.Border.IsVisible = false;
             tenmicrometer.Location.AlignH = AlignH.Left;
@@ -285,7 +286,7 @@ namespace MogulReport
 
             //draw text in left=top corner 1000 fach DIN
             TextObj left_top_text1 = new TextObj(
-                "1000 fach",
+                string.Format("{0} fach", mag),
                 -outside_circle_radius + 3,
                 outside_circle_radius - 5,
                 CoordType.AxisXYScale
@@ -354,16 +355,14 @@ namespace MogulReport
 
             zg.Refresh();
         }
-
-        private void formatPane(GraphPane mypane)
+        protected override void drawLayout(GraphPane mypane)
         {
+            base.drawLayout(mypane);
+    
             mypane.Margin.Top = 20;
             mypane.Margin.Bottom = 20;
             mypane.Margin.Left = 90;
             mypane.Margin.Right = 10;
-            mypane.TitleGap = 0;
-            mypane.Title.IsVisible = false;
-            mypane.Legend.IsVisible = false;
 
             var xaxis = mypane.XAxis;
             var yaxis = mypane.YAxis;
@@ -384,31 +383,8 @@ namespace MogulReport
             xaxis.Scale.MinorStep = 10;
             yaxis.Scale.MajorStep = 20;
             yaxis.Scale.MinorStep = 10;
-
-            //xaxis.Scale.IsVisible = false;
-            //xaxis.MajorGrid.IsZeroLine = true;
-            //yaxis.MajorGrid.IsZeroLine = true;
-            xaxis.Scale.IsVisible = false;
-            yaxis.Scale.IsVisible = false;
-
-            xaxis.MajorTic.IsOpposite = false;
-            xaxis.MinorTic.IsOpposite = false;
-
-            yaxis.MajorTic.IsOpposite = false;
-            yaxis.MinorTic.IsOpposite = false;
-
-
-
-            //xaxis.MajorTic.IsAllTics = false;
-            //yaxis.MajorTic.IsAllTics = false;
-
-            //xaxis.MinorTic.IsAllTics = false;
-            //yaxis.MinorTic.IsAllTics = false;  
-
-            //xaxis.IsVisible = false;
-            //yaxis.IsVisible = false;
+  
         }
-
 
     }
 }

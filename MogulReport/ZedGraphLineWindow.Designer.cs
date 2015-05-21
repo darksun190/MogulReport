@@ -1,15 +1,11 @@
-﻿
-
-namespace MogulReport
+﻿namespace MogulReport
 {
-    partial class ZedGraphDebuggerWindow
+    partial class ZedGraphLineWindow
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-  
-
 
         /// <summary>
         /// Clean up any resources being used.
@@ -32,17 +28,9 @@ namespace MogulReport
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // ZedGraphDebuggerWindow
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(894, 525);
-            this.Name = "ZedGraphDebuggerWindow";
-            this.Text = "ZedGraphDebuggerWindow";
-            this.ResumeLayout(false);
-
+            this.Text = "ZedGraphLineWindows";
         }
 
         #endregion

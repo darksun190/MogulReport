@@ -160,6 +160,15 @@ namespace MogulReport.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Linear 的本地化字符串。
+        /// </summary>
+        internal static string Linear {
+            get {
+                return ResourceManager.GetString("Linear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap logo {
@@ -215,6 +224,15 @@ namespace MogulReport.Properties {
         }
         
         /// <summary>
+        ///   查找类似 MULTI LINEAR Z 的本地化字符串。
+        /// </summary>
+        internal static string MultiLineHeader {
+            get {
+                return ResourceManager.GetString("MultiLineHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Name 的本地化字符串。
         /// </summary>
         internal static string Name {
@@ -233,7 +251,25 @@ namespace MogulReport.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Posiz.Z 的本地化字符串。
+        ///   查找类似 Parallel 的本地化字符串。
+        /// </summary>
+        internal static string Parallel {
+            get {
+                return ResourceManager.GetString("Parallel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Posit. C 的本地化字符串。
+        /// </summary>
+        internal static string PosC {
+            get {
+                return ResourceManager.GetString("PosC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Posiz.Y 的本地化字符串。
         /// </summary>
         internal static string PosZ {
             get {
@@ -256,6 +292,24 @@ namespace MogulReport.Properties {
         internal static string Roundness {
             get {
                 return ResourceManager.GetString("Roundness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Slope 的本地化字符串。
+        /// </summary>
+        internal static string Slope {
+            get {
+                return ResourceManager.GetString("Slope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Straightness 的本地化字符串。
+        /// </summary>
+        internal static string Straightness {
+            get {
+                return ResourceManager.GetString("Straightness", resourceCulture);
             }
         }
         
