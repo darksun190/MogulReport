@@ -170,13 +170,13 @@
     <value>mm</value>
   </data>
   <data name="down" xml:space="preserve">
-    <value>u</value>
+    <value>Lower</value>
   </data>
   <data name="middle" xml:space="preserve">
-    <value>m</value>
+    <value>Middle</value>
   </data>
   <data name="up" xml:space="preserve">
-    <value>o</value>
+    <value>Upper</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -207,5 +207,8 @@
   </data>
   <data name="Straightness" xml:space="preserve">
     <value>Straightness</value>
+  </data>
+  <data name="ExcentZ" xml:space="preserve">
+    <value>Offset.Z</value>
   </data>
 </root>

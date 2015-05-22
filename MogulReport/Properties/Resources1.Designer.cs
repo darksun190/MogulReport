@@ -97,7 +97,7 @@ namespace MogulReport.Properties {
         }
         
         /// <summary>
-        ///   查找类似 u 的本地化字符串。
+        ///   查找类似 Lower 的本地化字符串。
         /// </summary>
         internal static string down {
             get {
@@ -138,6 +138,15 @@ namespace MogulReport.Properties {
         internal static string ExcentY {
             get {
                 return ResourceManager.GetString("ExcentY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Offset.Z 的本地化字符串。
+        /// </summary>
+        internal static string ExcentZ {
+            get {
+                return ResourceManager.GetString("ExcentZ", resourceCulture);
             }
         }
         
@@ -197,7 +206,7 @@ namespace MogulReport.Properties {
         }
         
         /// <summary>
-        ///   查找类似 m 的本地化字符串。
+        ///   查找类似 Middle 的本地化字符串。
         /// </summary>
         internal static string middle {
             get {
@@ -323,7 +332,7 @@ namespace MogulReport.Properties {
         }
         
         /// <summary>
-        ///   查找类似 o 的本地化字符串。
+        ///   查找类似 Upper 的本地化字符串。
         /// </summary>
         internal static string up {
             get {
