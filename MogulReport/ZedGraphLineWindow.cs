@@ -154,7 +154,7 @@ namespace MogulReport
 
 
             //draw vertical scale ruler
-            #region hori
+            #region vertical
             //draw 10micro scale ruler
             double vv = yaxis.Scale.MajorStep;
             ////text
@@ -237,6 +237,77 @@ namespace MogulReport
             textmark2.Location.AlignV = AlignV.Center;
             textmark2.Location.AlignH = AlignH.Right;
             graphPane.GraphObjList.Add(textmark2);
+
+
+            //draw X axis range text
+            double max = xaxis.Scale.Max;
+            double min = xaxis.Scale.Min;
+
+            TextObj text_x_min = new TextObj(
+                string.Format("{0:F0}{1}", min, Properties.Resources.millimeter),
+                min,
+                yaxis.Scale.Min - 1,
+                CoordType.AxisXYScale,
+                AlignH.Left,
+                AlignV.Top);
+
+            TextObj text_x_max = new TextObj(
+                string.Format("{0:F0}{1}", max, Properties.Resources.millimeter),
+                max,
+                yaxis.Scale.Min - 1,
+                CoordType.AxisXYScale,
+                AlignH.Right,
+                AlignV.Top);
+            text_x_min.FontSpec.Border.IsVisible = false;
+            text_x_max.FontSpec.Border.IsVisible = false;
+
+
+            graphPane.GraphObjList.Add(text_x_max);
+            graphPane.GraphObjList.Add(text_x_min);
+
+            //arrow below the X axis
+            double arrow_start_x =
+                (max + min) / 2.0 - xaxis.Scale.MajorStep / 2;
+            double arrow_start_y = yaxis.Scale.Min - 4;
+            double arrow_end_x =
+                (max + min) / 2.0 + xaxis.Scale.MajorStep / 2;
+            double arrow_end_y = yaxis.Scale.Min - 4;
+
+            ArrowObj arrow_x_axis = new ArrowObj(
+                arrow_start_x,
+                arrow_start_y,
+                arrow_end_x,
+                arrow_end_y
+                );
+            graphPane.GraphObjList.Add(arrow_x_axis);
+
+            string text_below_x = null;
+            axisType axist = (axisType)Properties.Settings.Default.LineAxis;
+            switch (axist)
+            {
+                case axisType.X:
+                    text_below_x = "X";
+                    break;
+                case axisType.Y:
+                    text_below_x = "Y";
+                    break;
+                case axisType.Z:
+                    text_below_x = "Z";
+                    break;
+                default:
+                    throw new NotImplementedException("Axis direction error");
+            }
+            TextObj text_arrow_below_x = new TextObj(
+                text_below_x,
+                arrow_end_x + 5,
+                arrow_end_y,
+                CoordType.AxisXYScale,
+                AlignH.Left,
+                AlignV.Center
+                );
+            text_arrow_below_x.FontSpec.Border.IsVisible = false;
+            graphPane.GraphObjList.Add(text_arrow_below_x);
+
         }
 
         private void drawLinePoints(GraphPane graphPane)
@@ -246,7 +317,7 @@ namespace MogulReport
             PointPairList ppl1 = new PointPairList(line1_point_x.ToArray(), line1_z.ToArray());
             //outlier
             PointPairList ppl1_outlier = LineOutlier(ppl1);
-           
+
             var ppl1_list = guessLines(ppl1_outlier);
             dealed_line1 = new List<PointPairList>();
             foreach (var l in ppl1_list)
