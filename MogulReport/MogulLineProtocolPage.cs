@@ -33,6 +33,7 @@ namespace MogulReport
                 PdfPCell cell = new PdfPCell(Image.GetInstance(graphLineWindows.GraphicOutput, BaseColor.WHITE), true);
                 cell.Border = 0;
                 cell.HorizontalAlignment = Element.ALIGN_MIDDLE;
+                
                 graphic.AddCell(cell);
 
                 return graphic;
@@ -50,10 +51,10 @@ namespace MogulReport
                 iTextSharp.text.Font font2 = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.UNDEFINED, 11f, 0, BaseColor.BLACK);
                 PdfPTable table1 = new PdfPTable(2);
                 table1.SetWidths(new int[2]
-        {
-          67,
-          104
-        });
+                {
+                  67,
+                  106
+                });
                 PdfPTable table2 = new PdfPTable(1);
                 table2.DefaultCell.Border = 0;
                 table2.AddCell(new Phrase(Properties.Resources.MultiLineHeader, font1));
@@ -66,10 +67,10 @@ namespace MogulReport
                 PdfPTable table3 = new PdfPTable(2);
                 table3.DefaultCell.Border = 0;
                 table3.SetWidths(new int[2]
-        {
-          3,
-          7
-        });
+                {
+                  3,
+                  7
+                });
                 table3.AddCell(new Phrase(string.Format("{0}", Properties.Resources.Datum), font1));
                 table3.AddCell(new Phrase(string.Format(":{0}",  Properties.Resources.Reference), font2));
                 table3.AddCell(new Phrase(string.Format("{0}",  Properties.Resources.Reference), font1));

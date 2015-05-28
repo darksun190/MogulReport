@@ -520,8 +520,8 @@ namespace MogulReport
                     }
                 }
                 var query = ss.Select(n => n.Select(o => o.Y)).ToList();
-                var test = query.Select(n => n.Max() - n.Min()).ToArray();
-                var test1 = query.Select(n => n.Count()).ToArray();
+                //var test = query.Select(n => n.Max() - n.Min()).ToArray();
+                //var test1 = query.Select(n => n.Count()).ToArray();
                 double neigung = query.Select(n => n.Max() - n.Min()).Max();
 
                 //parallel
@@ -546,9 +546,9 @@ namespace MogulReport
 
             var devs = s.Select(n => Math.Sqrt(1 - Math.Pow(a, 2)) * (n.Y - (a * n.X + b))).ToList();
 
-            var test = s.Select(n => a * n.X + b).ToList();
-            var test1 = s.Select(n => n.Y - (a * n.X + b)).ToList();
-            var test2 = s.Select(n => n.Y).ToList();
+            //var test = s.Select(n => a * n.X + b).ToList();
+            //var test1 = s.Select(n => n.Y - (a * n.X + b)).ToList();
+            //var test2 = s.Select(n => n.Y).ToList();
 
 
             return (new PointPairList(s.Select(n => n.X).ToArray(), devs.ToArray())).ToList();
@@ -604,8 +604,8 @@ namespace MogulReport
                     }
                 }
                 var query = ss.Select(n => n.Select(o => o.Y)).ToList();
-                var test = query.Select(n => n.Max() - n.Min()).ToArray();
-                var test2 = query.Select(n => n.Count()).ToArray();
+                //var test = query.Select(n => n.Max() - n.Min()).ToArray();
+                //var test2 = query.Select(n => n.Count()).ToArray();
                 double neigung = query.Select(n => n.Max() - n.Min()).Max();
 
                 //parallel

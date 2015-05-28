@@ -16,7 +16,8 @@ namespace MogulReport
             : base(1)
         {
             this.widthPercentage = 100f;
-            this.defaultCell.Padding = 0;
+            this.defaultCell.Padding = 0.8f;
+            //this.defaultCell.Border = 2;
         }
      
         virtual protected PdfPTable Header

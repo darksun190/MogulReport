@@ -25,7 +25,7 @@ namespace MogulReport
                 //graphic part
                 var graphic = base.Graphic;
 
-                var form = new ZedGraphCircleWindow(circles, offsets,index);
+                var form = new ZedGraphCircleWindow(circles, offsets, index);
 
                 if (Debugger.IsAttached)
                 {
@@ -36,9 +36,10 @@ namespace MogulReport
                 //roundness.ScaleAbsolute(550, 200);
                 Roundness = form.Roundness;
 
-                PdfPCell protocol_pic = new PdfPCell(roundness,true);
-               // protocol_pic.FixedHeight = 440;
+                PdfPCell protocol_pic = new PdfPCell(roundness, true);
+                // protocol_pic.FixedHeight = 440;
                 protocol_pic.HorizontalAlignment = Element.ALIGN_MIDDLE;
+                graphic.DefaultCell.Border = 3;
                 graphic.AddCell(protocol_pic);
 
                 return graphic;
@@ -55,12 +56,12 @@ namespace MogulReport
 
                 Font fontBold = new Font(Font.FontFamily.UNDEFINED, 9, Font.BOLD, BaseColor.BLACK);//FontFactory.GetFont("Arial", 5);
                 Font fontNormal = new Font(Font.FontFamily.UNDEFINED, 9, Font.NORMAL, BaseColor.BLACK);
-                
+
                 datas.DefaultCell.Padding = 0;
 
                 PdfPTable dtheader1 = new PdfPTable(1);
                 dtheader1.DefaultCell.BorderWidth = 0;
- 
+
                 dtheader1.AddCell(new Phrase(Properties.Resources.MultiCircleHeader, fontBold));
                 Phrase dth1cell2 = new Phrase();
 
@@ -73,14 +74,14 @@ namespace MogulReport
                 dtheader2.DefaultCell.BorderWidth = 0;
 
                 dtheader2.SetWidths(new int[] { 10, 27 });
-                 //Properties.Resources.Datum,
-                 //Properties.Resources.Reference,
-                 //Properties.Resources.Reference,
-                 //Properties.Resources.Axis
+                //Properties.Resources.Datum,
+                //Properties.Resources.Reference,
+                //Properties.Resources.Reference,
+                //Properties.Resources.Axis
                 dtheader2.AddCell(new Phrase(Properties.Resources.Datum, fontBold));
-                dtheader2.AddCell(new Phrase(string.Format(": {0}",Properties.Resources.Reference),fontNormal));
+                dtheader2.AddCell(new Phrase(string.Format(": {0}", Properties.Resources.Reference), fontNormal));
                 dtheader2.AddCell(new Phrase(Properties.Resources.Reference, fontBold));
-                dtheader2.AddCell(new Phrase(string.Format(": {0}",Properties.Resources.Axis),fontNormal));
+                dtheader2.AddCell(new Phrase(string.Format(": {0}", Properties.Resources.Axis), fontNormal));
 
 
                 datas_header.AddCell(dtheader2);
@@ -125,8 +126,29 @@ namespace MogulReport
                     string col_name2 = string.Format(Properties.Resources.Filter);
                     string col_name3 = string.Format(Properties.Resources.PosZ);
                     string col_name4 = string.Format(Properties.Resources.Evaluation);
-                    string col_name5 = string.Format(Properties.Resources.ExcentX);
-                    string col_name6 = string.Format(Properties.Resources.ExcentY);
+
+                    string offset_x = null;
+                    string offset_y = null;
+                    axisType axist = (axisType)Properties.Settings.Default.LineAxis;
+                    switch (axist)
+                    {
+                        case axisType.X:
+                            offset_x = Properties.Resources.ExcentY;
+                            offset_y = Properties.Resources.ExcentZ;
+                            break;
+                        case axisType.Y:
+                            offset_x = Properties.Resources.ExcentX;
+                            offset_y = Properties.Resources.ExcentZ;
+                            break;
+                        case axisType.Z:
+                            offset_x = Properties.Resources.ExcentX;
+                            offset_y = Properties.Resources.ExcentY;
+                            break;
+                        default:
+                            throw new NotImplementedException("axis direction error");
+                    }
+                    string col_name5 = string.Format(offset_x);
+                    string col_name6 = string.Format(offset_y);
                     string col_name7 = string.Format(Properties.Resources.Roundness);
                     string col_name8 = string.Format(Properties.Resources.Coaxial);
                     Phrase column_header_cell1 = new Phrase(col_name1, fontBold);
@@ -195,7 +217,7 @@ namespace MogulReport
                     res.AddCell(new PdfPCell(new Paragraph(names[i])));
                     res.AddCell(new PdfPCell(new Paragraph("0-50")));
                     res.AddCell(new PdfPCell(new Paragraph(list1[i].y.ToString("F3"))));
-                    res.AddCell(new PdfPCell(new Paragraph("LSC")));
+                    res.AddCell(new PdfPCell(new Paragraph("MIC")));
                     res.AddCell(new PdfPCell(new Paragraph((list2[i].x * 1000).ToString("F2"))));
                     res.AddCell(new PdfPCell(new Paragraph((list2[i].y * 1000).ToString("F2"))));
                     double roundness = list3[i];
