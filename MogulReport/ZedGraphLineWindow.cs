@@ -324,6 +324,13 @@ namespace MogulReport
             {
                 PointPairList ppl1_filter = LineFilter(l);
                 PointPairList ppl1_offset = LineOffset(ppl1_filter, 25);
+                
+                //insert a pair of start-end point
+                double x_start = ppl1_offset.First().X;
+                ppl1_offset.Insert(0, x_start, graphPane.YAxis.Scale.Max);
+                double x_end = ppl1_offset.Last().X;
+                ppl1_offset.Add(x_end, graphPane.YAxis.Scale.Max);
+
                 dealed_line1.Add(ppl1_filter);
                 graphPane.AddCurve("", ppl1_offset, Color.Red, SymbolType.None);
             }
@@ -333,9 +340,7 @@ namespace MogulReport
             PointPairList ppl2 = new PointPairList(line2_point_x.ToArray(), line2_z.ToArray());
             //outlier
             var ppl2_outlier = LineOutlier(ppl2);
-            var tv1 = ppl1_outlier.Select(n => n.Y).Max();
-            var tv2 = ppl1_outlier.Select(n => n.Y).Min();
-
+         
             var ppl2_list = guessLines(ppl2_outlier);
 
             List<PointPair> tv3 = new List<PointPair>();
@@ -345,11 +350,15 @@ namespace MogulReport
             {
                 PointPairList ppl2_filter = LineFilter(l);
                 PointPairList ppl2_offset = LineOffset(ppl2_filter, -25);
+                //insert a pair of start-end point
+                double x_start = ppl2_offset.First().X;
+                ppl2_offset.Insert(0, x_start, graphPane.YAxis.Scale.Min);
+                double x_end = ppl2_offset.Last().X;
+                ppl2_offset.Add(x_end, graphPane.YAxis.Scale.Min);
+
                 dealed_line2.Add(ppl2_filter);
-                tv3.AddRange(ppl2_filter);
                 graphPane.AddCurve("", ppl2_offset, Color.Red, SymbolType.None);
             }
-            var tv4 = tv3.Select(n => n.Y).ToList();
         }
 
         private PointPairList LineOffset(PointPairList ppl_filter, int offset)
