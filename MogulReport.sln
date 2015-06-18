@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.22310.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MogulReport", "MogulReport\MogulReport.csproj", "{A3CE6E7E-947B-471E-8E36-39A69BBC49B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPInterface", "..\..\..\..\..\..\Qt\Projects\sp_reader\sp_reader\SPInterface.csproj", "{70DA37EF-1B65-457F-A554-E6F943EA2BA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPInterface", "..\..\..\VS GIT\specialProgram\sp_reader\sp_reader\SPInterface.csproj", "{70DA37EF-1B65-457F-A554-E6F943EA2BA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

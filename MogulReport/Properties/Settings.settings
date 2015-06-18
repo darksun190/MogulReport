@@ -14,5 +14,11 @@
     <Setting Name="CircleMaskedPoints" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">15</Value>
     </Setting>
+    <Setting Name="Title" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Modified Title</Value>
+    </Setting>
+    <Setting Name="CircleEvaluationMethod" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MIC</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

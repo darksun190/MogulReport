@@ -37,6 +37,18 @@ namespace MogulReport
             groups = guessGroups(circles.Count);
             int no_each_group = circles.Count / groups;
 
+            var selectEva = new SelectEvaluationMethod();
+            var ans = selectEva.ShowDialog();
+            if(ans == System.Windows.Forms.DialogResult.OK)
+            {
+                Properties.Settings.Default.CircleEvaluationMethod = "MIC";
+            }
+            else
+            {
+                Properties.Settings.Default.CircleEvaluationMethod = "LSC";
+            }
+            Properties.Settings.Default.Save();
+
             //calculate the reference line
             rLine = new ReferenceLine(circles.Last(), circles.First());
 

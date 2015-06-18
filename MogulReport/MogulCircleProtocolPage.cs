@@ -217,7 +217,7 @@ namespace MogulReport
                     res.AddCell(new PdfPCell(new Paragraph(names[i])));
                     res.AddCell(new PdfPCell(new Paragraph("0-50")));
                     res.AddCell(new PdfPCell(new Paragraph(list1[i].y.ToString("F3"))));
-                    res.AddCell(new PdfPCell(new Paragraph(Properties.Resources.CircleEvaluationMethod)));
+                    res.AddCell(new PdfPCell(new Paragraph(Properties.Settings.Default.CircleEvaluationMethod)));
                     res.AddCell(new PdfPCell(new Paragraph((list2[i].x * 1000).ToString("F2"))));
                     res.AddCell(new PdfPCell(new Paragraph((list2[i].y * 1000).ToString("F2"))));
                     double roundness = list3[i];

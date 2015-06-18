@@ -70,5 +70,29 @@ namespace MogulReport.Properties {
                 this["CircleMaskedPoints"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Modified Title")]
+        public string Title {
+            get {
+                return ((string)(this["Title"]));
+            }
+            set {
+                this["Title"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("MIC")]
+        public string CircleEvaluationMethod {
+            get {
+                return ((string)(this["CircleEvaluationMethod"]));
+            }
+            set {
+                this["CircleEvaluationMethod"] = value;
+            }
+        }
     }
 }

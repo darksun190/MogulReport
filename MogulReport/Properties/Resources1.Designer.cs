@@ -339,5 +339,15 @@ namespace MogulReport.Properties {
                 return ResourceManager.GetString("up", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ZeissLogo {
+            get {
+                object obj = ResourceManager.GetObject("ZeissLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
